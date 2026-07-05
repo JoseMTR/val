@@ -1,0 +1,306 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#08111f,#111827,#1f2937);
+    overflow:hidden;
+    color:white;
+}
+
+.page{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
+    text-align:center;
+    animation:fade .8s;
+}
+
+.page.active{
+    display:flex;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    color:#000000;
+}
+
+p{
+    max-width:850px;
+    line-height:1.9;
+    font-size:18px;
+    color:#000000;
+}
+
+button{
+    margin-top:35px;
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    background:#ff4d88;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    background:#ff6ca3;
+}
+
+
+.envelope{
+    width:320px;
+    height:220px;
+    background:#ff8cb5;
+    position:relative;
+    cursor:pointer;
+    transition:.5s;
+}
+
+.envelope:hover{
+    transform:scale(1.05);
+}
+
+.envelope .top{
+    position:absolute;
+    width:0;
+    height:0;
+    border-left:160px solid transparent;
+    border-right:160px solid transparent;
+    border-top:120px solid #ff6b9f;
+}
+
+.letter{
+    position:absolute;
+    width:90%;
+    height:180px;
+    background:white;
+    color:#333;
+    left:5%;
+    top:20px;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    font-weight:bold;
+}
+
+
+.paper{
+    width:90%;
+    max-width:900px;
+    max-height:85vh;
+    overflow-y:auto;
+    background:white;
+    color:#333;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 0 30px rgba(0,0,0,.4);
+}
+
+.paper h1{
+    color:#ff4d88;
+}
+
+.paper p{
+    text-align:justify;
+    white-space:pre-line;
+}
+
+
+#stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-2;
+}
+
+.star{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    animation:blink 2s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.2;
+    }
+}
+
+
+#hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.heart{
+    position:absolute;
+    color:#ff5c93;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+.finalTitle{
+    font-size:4rem;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.1);
+    }
+}
+
+
+@media(max-width:700px){
+
+h1{
+    font-size:2rem;
+}
+
+.paper{
+    padding:25px;
+}
+
+.paper p{
+    font-size:16px;
+}
+
+.envelope{
+    transform:scale(.8);
+}
+
+}
+
+
+html{
+    font-size:16px;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+.page{
+    width:100%;
+    min-height:100vh;
+    padding:25px;
+}
+
+h1{
+    font-size:clamp(2rem,5vw,3.5rem);
+}
+
+p{
+    font-size:clamp(1rem,2.5vw,1.2rem);
+    line-height:1.8;
+}
+
+button{
+    width:auto;
+    max-width:300px;
+    width:100%;
+    padding:15px;
+    font-size:1rem;
+}
+
+.envelope{
+    width:min(90vw,350px);
+    height:min(60vw,230px);
+}
+
+.envelope .top{
+    border-left:45vw solid transparent;
+    border-right:45vw solid transparent;
+    border-top:30vw solid #ff6b9f;
+}
+
+@media (min-width:350px){
+    .envelope .top{
+        border-left:160px solid transparent;
+        border-right:160px solid transparent;
+        border-top:120px solid #ff6b9f;
+    }
+}
+
+.paper{
+    width:min(95%,900px);
+    max-height:85vh;
+    overflow-y:auto;
+    padding:20px;
+}
+
+@media (max-width:768px){
+
+    .paper{
+        padding:20px;
+    }
+
+    .paper h1{
+        font-size:1.7rem;
+    }
+
+    .paper p{
+        font-size:1rem;
+        text-align:left;
+    }
+
+    button{
+        font-size:1rem;
+    }
+
+}
+
+@media (min-width:769px) and (max-width:1024px){
+
+    .paper{
+        width:85%;
+    }
+
+}
+
+@media (min-width:1200px){
+
+    .paper{
+        width:70%;
+    }
+
+}   
